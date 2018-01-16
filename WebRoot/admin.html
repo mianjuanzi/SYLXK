@@ -1,0 +1,140 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="keywords" content="jquery,ui,easy,easyui,web">
+	<meta name="description" content="easyui help you build your web page easily!">
+	<title>Build CRUD Application with edit form in expanded row details - jQuery EasyUI Demo</title>
+	<link rel="stylesheet" type="text/css" href="./js/jquery-easyui-1.2.6/themes/default/easyui.css">
+<link rel="stylesheet" type="text/css" href="./js/jquery-easyui-1.2.6/themes/icon.css">
+	
+	<link rel="stylesheet" type="text/css" href="./js/jquery-easyui-1.2.6/demo/demo.css">
+	<style type="text/css">
+		form{
+			margin:0;
+			padding:0;
+		}
+		.dv-table td{
+			border:0;
+		}
+		.dv-table input{
+			border:1px solid #ccc;
+		}
+	</style>
+	
+	<script type="text/javascript" src="./js/jquery-1.7.2.min.js"></script>
+	<script type="text/javascript" src="./js/jquery-easyui-1.2.6/jquery.easyui.min.js"></script>
+	<script type="text/javascript" src="./js/jquery-easyui-1.2.6/datagrid-detailview.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$('#dg').datagrid({
+				view: detailview,
+				detailFormatter:function(index,row){
+					return '<div class="ddv"></div>';
+				},
+				onExpandRow: function(index,row){
+					var ddv = $(this).datagrid('getRowDetail',index).find('div.ddv');
+					ddv.panel({
+						border:false,
+						cache:true,
+						href:'show_form.php?index='+index,
+						onLoad:function(){
+							$('#dg').datagrid('fixDetailRowHeight',index);
+							$('#dg').datagrid('selectRow',index);
+							$('#dg').datagrid('getRowDetail',index).find('form').form('load',row);
+						}
+					});
+					$('#dg').datagrid('fixDetailRowHeight',index);
+				}
+			});
+		});
+		function saveItem(index){
+			var row = $('#dg').datagrid('getRows')[index];
+			var url = row.isNewRecord ? 'save_user.php' : 'update_user.php?id='+row.id;
+			$('#dg').datagrid('getRowDetail',index).find('form').form('submit',{
+				url: url,
+				onSubmit: function(){
+					return $(this).form('validate');
+				},
+				success: function(data){
+					data = eval('('+data+')');
+					data.isNewRecord = false;
+					$('#dg').datagrid('collapseRow',index);
+					$('#dg').datagrid('updateRow',{
+						index: index,
+						row: data
+					});
+				}
+			});
+		}
+		function cancelItem(index){
+			var row = $('#dg').datagrid('getRows')[index];
+			if (row.isNewRecord){
+				$('#dg').datagrid('deleteRow',index);
+			} else {
+				$('#dg').datagrid('collapseRow',index);
+			}
+		}
+		function destroyItem(){
+			var row = $('#dg').datagrid('getSelected');
+			if (row){
+				$.messager.confirm('Confirm','Are you sure you want to remove this user?',function(r){
+					if (r){
+						var index = $('#dg').datagrid('getRowIndex',row);
+						$.post('destroy_user.php',{id:row.id},function(){
+							$('#dg').datagrid('deleteRow',index);
+						});
+					}
+				});
+			}
+		}
+		function newItem(){
+			$('#dg').datagrid('appendRow',{isNewRecord:true});
+			var index = $('#dg').datagrid('getRows').length - 1;
+			$('#dg').datagrid('expandRow', index);
+			$('#dg').datagrid('selectRow', index);
+		}
+	</script>
+</head>
+<body>
+	<h2>选课系统（管理员）</h2>
+	<div class="demo-info" style="margin-bottom:10px">
+		<div class="demo-tip icon-tip">&nbsp;</div>
+		<div>点击查看详细信息并审核</div>
+	</div>
+	
+	
+	<table id="dg" title="管理界面" style="width:full;height:400px"
+			url="/servlet/showcourse"
+			toolbar="#toolbar" pagination="true"
+			fitColumns="true" singleSelect="true">
+		<thead>
+			<tr>
+				<th field="cid" width="50">课程ID</th>
+				<th field="name" width="50">课程名称</th>
+				<th field="tid" width="50">教师ID</th>
+				<th field="time" width="50">课时</th>
+				<th field="content" width="50">课程内容</th>
+				<th field="req" width="50">课程要求</th>
+				<th field="test" width="50">考核方式</th>
+				<th field="tag" width="50">是否通过审核</th>
+				
+			</tr>
+		</thead>
+	</table>
+	<h3>请输入要审核的课程号</h3>
+	<form name="fff"method="get" action="/servlet/pass">
+	<table class="dv-table" style="width:100%;background:#fafafa;padding:5px;margin-top:5px;">
+		<tr>
+			<td>课程ID</td>
+			<td><input name="cid"  class="easyui-validatebox" required="true"></input></td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+			<td><input type="submit" value="通过课程审核" />&nbsp;&nbsp;&nbsp;<input type="submit" value="取消审核通过" onclick="fff.method='post';fff.submit();"/></td>
+		
+		</tr>
+		
+		
+	</table>	
+</form>
+
+</body>
+</html>

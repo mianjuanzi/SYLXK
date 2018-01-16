@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.0"
+    xmlns="http://java.sun.com/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>test</servlet-name>
+    <servlet-class>control.test</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>logincontrol</servlet-name>
+    <servlet-class>control.logincontrol</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>signupstu</servlet-name>
+    <servlet-class>control.signupstu</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>signuptea</servlet-name>
+    <servlet-class>control.signuptea</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>showcourse</servlet-name>
+    <servlet-class>control.showcourse</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>showallcourse</servlet-name>
+    <servlet-class>control.showallcourse</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>showform</servlet-name>
+    <servlet-class>control.showform</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>coursepass</servlet-name>
+    <servlet-class>control.coursepass</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>pass</servlet-name>
+    <servlet-class>control.pass</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>showpasscourse</servlet-name>
+    <servlet-class>control.showpasscourse</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>fillteacher</servlet-name>
+    <servlet-class>control.fillteacher</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>queryteacou</servlet-name>
+    <servlet-class>control.queryteacou</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>selectclass</servlet-name>
+    <servlet-class>control.selectclass</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>teachange</servlet-name>
+    <servlet-class>control.teachange</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>pubclass</servlet-name>
+    <servlet-class>control.pubclass</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>stuchange</servlet-name>
+    <servlet-class>control.stuchange</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>showstudent</servlet-name>
+    <servlet-class>control.showstudent</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>printexcel</servlet-name>
+    <servlet-class>control.printexcel</servlet-class>
+  </servlet>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <servlet-mapping>
+    <servlet-name>test</servlet-name>
+    <url-pattern>/servlet/test.do</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>logincontrol</servlet-name>
+    <url-pattern>/servlet/logincontrol</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>signupstu</servlet-name>
+    <url-pattern>/servlet/signupstu</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>signuptea</servlet-name>
+    <url-pattern>/servlet/signuptea</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>showcourse</servlet-name>
+    <url-pattern>/servlet/showcourse</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>showallcourse</servlet-name>
+    <url-pattern>/servlet/showallcourse</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>showform</servlet-name>
+    <url-pattern>/servlet/showform</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>coursepass</servlet-name>
+    <url-pattern>/servlet/coursepass</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>pass</servlet-name>
+    <url-pattern>/servlet/pass</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>showpasscourse</servlet-name>
+    <url-pattern>/servlet/showpasscourse</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>fillteacher</servlet-name>
+    <url-pattern>/servlet/fillteacher</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>queryteacou</servlet-name>
+    <url-pattern>/servlet/queryteacou</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>selectclass</servlet-name>
+    <url-pattern>/servlet/selectclass</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>teachange</servlet-name>
+    <url-pattern>/servlet/teachange</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>pubclass</servlet-name>
+    <url-pattern>/servlet/pubclass</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>stuchange</servlet-name>
+    <url-pattern>/servlet/stuchange</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>showstudent</servlet-name>
+    <url-pattern>/servlet/showstudent</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>printexcel</servlet-name>
+    <url-pattern>/servlet/printexcel</url-pattern>
+  </servlet-mapping>
+
+
+</web-app>
